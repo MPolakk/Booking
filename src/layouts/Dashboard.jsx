@@ -1,19 +1,13 @@
 import { Suspense } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useURL } from '../hooks/useURL';
+import { Page } from './Dashboard.styled';
 
 const Dashboard = () => {
   const url = useURL();
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-        height: '100%',
-      }}
-    >
+    <Page>
       <header>
         <h1>Cottage For Rent</h1>
         <nav
@@ -27,7 +21,7 @@ const Dashboard = () => {
           <Link to={url.cottages.path}>Nasze domki</Link>
           <Link to={url.gallery.path}>Galeria</Link>
           <Link to={url.home.path}>Home</Link>
-          <Link to={url.attractions.path}>Attractions</Link>
+          <Link to={url.attractions.path}>Atrakcje</Link>
           <Link to={url.contact.path}>Kontakt</Link>
           <Link to={url.reservation.path}>Rezerwacja</Link>
         </nav>
@@ -38,7 +32,7 @@ const Dashboard = () => {
         </Suspense>
       </main>
       <footer>contact place</footer>
-    </div>
+    </Page>
   );
 };
 
