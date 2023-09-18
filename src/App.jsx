@@ -33,7 +33,7 @@ const Root = () => {
   );
 };
 
-const router = createBrowserRouter([{ path: '*', Component: Root }]);
+const router = createBrowserRouter([{ path: '/*', Component: Root }]);
 
 const App = () => {
   return <RouterProvider router={router} />;
