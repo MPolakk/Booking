@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 export const darkTheme = {
   button: {
     main: 'white',
@@ -7,3 +8,14 @@ export const darkTheme = {
     main: 'gray',
   },
 };
+=======
+export const darkTheme = {
+  button: {
+    main: 'white',
+    background: 'darkblue',
+  },
+  bg: {
+    main: 'gray',
+  },
+};
+>>>>>>> Stashed changes
