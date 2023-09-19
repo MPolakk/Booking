@@ -1,4 +1,5 @@
-import { modeType, useDarkMode } from '../../../hooks';
+import { useDispatch } from 'react-redux';
+import { modeType, setMode } from '../../../redux';
 import {
   SwitchBar,
   SwitchContainer,
@@ -7,10 +8,16 @@ import {
 import { useState } from 'react';
 
 export const SwitchDarkMode = ({ width = 40, height = 20 }) => {
+  const dispatch = useDispatch();
   const [checked, setChecked] = useState(false);
 
   const handleChecked = value => {
     setChecked(value);
+    if (value) {
+      dispatch(setMode(modeType.light));
+    } else {
+      dispatch(setMode(modeType.dark));
+    }
   };
 
   return (

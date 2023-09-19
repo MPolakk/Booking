@@ -1,22 +1,20 @@
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, basicTheme, darkTheme } from './';
-import { useEffect, useState } from 'react';
-import { modeType, useDarkMode } from '../hooks';
+import { useState, useEffect } from 'react';
+import { useGlobal } from '../hooks';
+import { useDispatch } from 'react-redux';
+import { setMode, modeType } from '../redux';
 
 export const Theme = ({ children }) => {
+  const dispatch = useDispatch();
   const [theme, setTheme] = useState({ ...basicTheme, ...lightTheme });
-  const [mode, setMode] = useDarkMode();
+  const { mode } = useGlobal();
 
-  useState(() => {
+  useEffect(() => {
     const localMode = localStorage.getItem('mode');
-    if (localMode) {
-      setMode(localMode);
-    }
-    localStorage.setItem('mode', mode());
+    dispatch(setMode(localMode));
 
-    const themeMode = mode();
-    console.log(themeMode);
-    if (themeMode === modeType.dark) {
+    if (mode === modeType.dark) {
       setTheme({ ...basicTheme, ...darkTheme });
       return;
     }
