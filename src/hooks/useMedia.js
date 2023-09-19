@@ -26,9 +26,9 @@ export const useMediaQuery = query => {
 
 export const useMedia = () => {
   const theme = useTheme();
-  const isDesktop = useMediaQuery(`(min-width: ${theme.bp.desktop}px)`);
-  const isTablet = useMediaQuery(`(min-width: ${theme.bp.tablet}px)`);
-  const isMobile = useMediaQuery(`(min-width: ${theme.bp.mobile}px)`);
+  const isDesktop = useMediaQuery(`(min-width: ${theme.mbp.desktop}px)`);
+  const isTablet = useMediaQuery(`(min-width: ${theme.mbp.tablet}px)`);
+  const isMobile = useMediaQuery(`(min-width: ${theme.mbp.mobile}px)`);
 
   return { isDesktop, isTablet, isMobile };
 };
