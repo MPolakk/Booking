@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useURL } from '../hooks/useURL';
 import { Page } from './Dashboard.styled';
+import { SwitchDarkMode } from '../components/elements';
 
 const Dashboard = () => {
   const url = useURL();
@@ -25,6 +26,7 @@ const Dashboard = () => {
           <Link to={url.contact.path}>Kontakt</Link>
           <Link to={url.reservation.path}>Rezerwacja</Link>
         </nav>
+        <SwitchDarkMode />
       </header>
       <main style={{ flex: 1 }}>
         <Suspense>

@@ -6,4 +6,9 @@ export const lightTheme = {
   bg: {
     main: 'lightgray',
   },
+  switchBar: {
+    bg: 'black',
+    boxShadow: '4px 4px 4px gray',
+    bar: 'white',
+  },
 };
