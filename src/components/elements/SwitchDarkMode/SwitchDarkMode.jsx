@@ -8,15 +8,9 @@ import { useState } from 'react';
 
 export const SwitchDarkMode = ({ width = 40, height = 20 }) => {
   const [checked, setChecked] = useState(false);
-  const { setMode } = useDarkMode();
 
   const handleChecked = value => {
     setChecked(value);
-    if (!value) {
-      setMode(modeType.dark);
-      return;
-    }
-    setMode(modeType.light);
   };
 
   return (
