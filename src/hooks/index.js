@@ -1,2 +1,2 @@
 export * from './useURL';
-export * from './useGlobal';
+export * from './useDarkMode';
