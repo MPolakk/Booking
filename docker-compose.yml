@@ -1,0 +1,107 @@
+﻿version: '3.9'
+
+networks:
+  cottageforrent:
+    driver: bridge
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    tty: true
+    ports:
+      - "3001:80"
+    volumes:
+      - ./backend:/var/www/html
+      - ./bin/.nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - cottageforrent
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    environment:
+      SERVICE_NAME: php
+      SERVICE_TAGS: dev
+      DB_HOST: ${DB_HOST}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./backend:/var/www/html
+      - ./bin/.php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./bin/.php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - ./bin/.php/conf.d/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
+    ports:
+      - "80:9000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - cottageforrent
+
+  mysql:
+    image: mysql:5.7.29
+    platform: linux/x86_64
+    command: mysqld --sql_mode=""
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: laravel_app
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret456
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - cottageforrent
+    volumes:
+      - ./bin/.sql_scripts:/docker-entrypoint-initdb.d
+      - ./bin/.mysql:/var/lib/mysql
+
+  composer:
+    image: composer:latest
+    user: "1000:1000"
+    container_name: backend_composer
+    volumes:
+      - ./backend:/var/www/html
+    working_dir: /var/www/html
+    command: composer update
+    depends_on:
+      - php
+    networks:
+      - cottageforrent
+
+  node:
+    image: node:16
+    user: "1000:1000"
+    volumes:
+      - ./frontend:/var/www/html
+    working_dir: /var/www/html
+    command: npm run start
+    ports:
+      - "3000:3000"
+    tty: true
+    networks:
+      - cottageforrent
+
+  redis:
+    image: redis:4.0
+    container_name: backend_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - cottageforrent
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 3002:80
+    environment:
+      PMA_HOST: mysql
+    networks:
+      - cottageforrent
