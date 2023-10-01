@@ -28,7 +28,7 @@ RUN chmod 755 /var/www
 USER developer
 
 # Copy existing application directory contents
-COPY ./backend /var/www/html
+COPY ./backend /var/www/
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
