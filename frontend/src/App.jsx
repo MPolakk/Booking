@@ -6,6 +6,7 @@ import {
   createBrowserRouter,
 } from 'react-router-dom';
 import { useURL } from './hooks/useURL';
+import { Theme } from './theme';
 
 const DashboardLayout = lazy(() => import('./layouts/Dashboard'));
 
@@ -33,10 +34,14 @@ const Root = () => {
   );
 };
 
-const router = createBrowserRouter([{ path: '*', Component: Root }]);
+const router = createBrowserRouter([{ path: '/*', Component: Root }]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <Theme>
+      <RouterProvider router={router} />
+    </Theme>
+  );
 };
 
 export default App;
