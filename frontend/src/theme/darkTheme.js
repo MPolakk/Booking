@@ -3,8 +3,8 @@ export const darkTheme = {
     main: 'white',
     background: 'darkblue',
   },
-  bg: {
-    main: 'gray',
+  header: {
+    bg: 'gray',
   },
   switchBar: {
     bg: 'white',
