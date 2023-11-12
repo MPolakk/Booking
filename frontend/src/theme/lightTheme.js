@@ -4,6 +4,11 @@ export const lightTheme = {
   header: {
     bg: 'rgba(60,120,125,0.8)'
   },
+  switchBar: {
+    bg: 'black',
+    boxShadow: '4px 4px 4px gray',
+    bar: 'white',
+  },
   emptybutton: {
     border: '#43828e',
     text: '#2d2d2d',
