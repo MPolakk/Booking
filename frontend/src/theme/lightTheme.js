@@ -9,6 +9,10 @@ export const lightTheme = {
     boxShadow: '4px 4px 4px gray',
     bar: 'white',
   },
+  icons: {
+    attraction: whitecolor,
+    description: '#009999'
+  },
   emptybutton: {
     border: '#43828e',
     text: '#2d2d2d',
@@ -32,8 +36,6 @@ export const lightTheme = {
     text2: '#313131',
     text3: '#7b7b7b',
     boldedtext: '#2b2b2b',
-
-
   },
   input: {
     border: '#e7e7e7',
