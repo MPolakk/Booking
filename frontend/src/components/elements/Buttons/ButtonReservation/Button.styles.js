@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { basicTheme } from '../../../../theme/basicTheme';
 export const StyledButton = styled.button`
   color: #2d2d2d;
   height: 45px;
@@ -13,12 +12,12 @@ export const StyledButton = styled.button`
   letter-spacing: 1px;
   text-align: center;
   cursor: pointer;
-  font-family: ${basicTheme.font.buttonForm};
-  font-size: ${basicTheme.font.buttonForm}
+  font-family: ${({ theme }) => theme.font.buttonForm};
+  font-size: ${({ theme }) => theme.fontSize.buttonForm};
   transition: all 0.4s ease;
   &:hover {
     background-color: #43828e;
     color: #ffffff;
     background: #008a93;
   }
-`;
+`

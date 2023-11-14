@@ -11,4 +11,8 @@ export const darkTheme = {
     boxShadow: '4px 4px 4px gray',
     bar: 'black',
   },
+  icons: {
+    attraction: 'black',
+    description: 'black',
+  },
 };
