@@ -16,6 +16,7 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Cottages = lazy(() => import('./pages/Cottages'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const Home = lazy(() => import('./pages/Home'));
+const TestPage = lazy(() => import('./pages/TestPage'));
 
 const Root = () => {
   const url = useURL();
@@ -29,6 +30,7 @@ const Root = () => {
         <Route path={url.contact.path} element={<Contact />} />
         <Route path={url.cottages.path} element={<Cottages />} />
         <Route path={url.gallery.path} element={<Gallery />} />
+        <Route path={'test'} element={<TestPage />} />
       </Route>
     </Routes>
   );
