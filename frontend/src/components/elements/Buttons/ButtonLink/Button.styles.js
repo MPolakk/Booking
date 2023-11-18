@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-export const StyledButton = styled.button`
+import { HashLink } from 'react-router-hash-link';
+export const StyledButton = styled(HashLink)`
   color: ${({ theme }) => theme.roundedbutton.text};
   height: 43px;
   min-width: 176px;
