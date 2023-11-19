@@ -15,6 +15,7 @@ export const lightTheme = {
   },
   emptybutton: {
     border: '#43828e',
+    bg: '#f9f9f9',
     text: '#2d2d2d',
     bghover: '#008a93',
     texthover: whitecolor,
