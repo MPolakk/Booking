@@ -37,12 +37,18 @@ export const lightTheme = {
     text3: '#7b7b7b',
     boldedtext: '#2b2b2b',
   },
-  input: {
+  inputMedium: {
     border: '#e7e7e7',
     label: '#5c5c5c',
     text: '#2d2d2d',
     bg: '#f2f2f2',
     bgactive: whitecolor,
+  },
+  inputLight: {
+    border: '#e7e7e7',
+    bg: '#f9f9f9',
+    text: '#7b7b7b'
+
   },
   footer: {
     bg: '#252628'
