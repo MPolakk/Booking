@@ -5,16 +5,6 @@ export const useURL = () => {
       namePL: 'O nas',
       path: '/o-nas',
     },
-    attractions: {
-      name: 'Attractions',
-      namePL: 'Atrakcje',
-      path: '/atrakcje',
-    },
-    contact: {
-      name: 'Contact',
-      namePL: 'Kontakt',
-      path: '/kontakt',
-    },
     cottages: {
       name: 'Our cottages',
       namePL: 'Nasze domki',
@@ -30,9 +20,19 @@ export const useURL = () => {
       namePL: 'Strona domowa',
       path: '/',
     },
+    attractions: {
+      name: 'Attractions',
+      namePL: 'Atrakcje',
+      path: '/atrakcje',
+    },
+    contact: {
+      name: 'Contact',
+      namePL: 'Kontakt',
+      path: '/kontakt',
+    },
     reservation: {
       name: 'Reservation',
-      namePL: 'Reserwacja',
+      namePL: 'Rezerwacja',
       path: '/kontakt#rezerwacja',
     },
   };
