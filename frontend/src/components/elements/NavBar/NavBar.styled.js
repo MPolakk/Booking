@@ -1,21 +1,28 @@
 import styled from 'styled-components';
 
-const StyledNavBar = styled.div`
+
+
+const StyledNavBarMobile = styled.div`
+   position: fixed;
    display: flex;
    align-items: center;
-   height: 70px;
+   width: 100%;
    justify-content: space-between;
    background-color: ${({ theme }) => theme.header.bg};
-   border-bottom: 1px solid white;
+   height: ${({ className }) => className == 'minimize' ? '60px' : '70px'};
+   transition: height .4s;
+   overflow: hidden;
+   img {
+      transition: width .2s;
+   }
 `
 
 const StyledNavButton = styled.div`
-
-   height: 100%;
+   height: 70px;
    width: 70px;
    position: relative;
-   border-left: 1px solid white;
-   
+   border-left: ${({ $scroll }) => $scroll ? '1px solid transparent' : '1px solid white'};
+   transition: border-left .2s;
    & > div {
       display: grid;
       place-items: center;
@@ -25,7 +32,8 @@ const StyledNavButton = styled.div`
    & > div > span {
       display: block;
       position: absolute;
-      border-bottom: 2px solid black;
+      user-select: none;
+      border-bottom: 2px solid ${({ $scroll }) => $scroll ? 'white' : 'black'};
       width: 30px;
       
    }
@@ -44,14 +52,17 @@ const StyledNavButton = styled.div`
    }
 `
 const StyledMenu = styled.div`
-   position: absolute;
-   cursor: pointer;
+   position: fixed;
    top:0;
-   left:0;
+   left: ${(props) => props.className === 'active' ? '0' : '-260px'};
    display: block;
    width: 260px;
    height: 100vh;
-   background-color: ${({ theme }) => theme.header.bg};
+   background-color: ${({ theme }) => theme.header.menu};
+   z-index: 2;
+   transition: left 0.2s;
+   
+   
    & > div {
       position: relative;
       .exit-button {
@@ -86,11 +97,10 @@ const StyledMenu = styled.div`
       font-size: ${({ theme }) => theme.fontSize.titleH5};
       padding: 60px 0;
       & > li{
-      user-select: none;
-      cursor: pointer;
       height: 50px;
       width: 100%;
       padding: 15px 25px;
+      cursor: pointer;
          & > a {
          color: ${({ theme }) => theme.textcolor.primary};
          text-decoration: none;
@@ -99,4 +109,14 @@ const StyledMenu = styled.div`
    }
    
 `
-export { StyledNavBar, StyledNavButton, StyledMenu }
+
+const StyledBlur = styled.div`
+   position: fixed;
+   left: 0;
+   top: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0.25);
+   z-index: 1;
+`
+export { StyledNavBarMobile, StyledNavButton, StyledMenu, StyledBlur }

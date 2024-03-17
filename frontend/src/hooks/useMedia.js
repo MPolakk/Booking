@@ -9,7 +9,6 @@ const initialState = {
 
 export const useMediaQuery = query => {
   const [matches, setMatches] = useState(false);
-
   useEffect(() => {
     const media = window.matchMedia(query);
     if (media.matches !== matches) {
@@ -17,7 +16,6 @@ export const useMediaQuery = query => {
     }
     const listener = () => setMatches(media.matches);
     window.addEventListener('resize', listener);
-    console.log('foobar');
     return () => window.removeEventListener('resize', listener);
   }, []);
 
