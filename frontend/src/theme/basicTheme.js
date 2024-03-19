@@ -25,4 +25,9 @@ export const basicTheme = {
     titleH5: '20px',
     titleH6: '15px',
   },
+  mbp: {
+    desktop: 1100,
+    tablet: 800,
+    mobile: 300
+  }
 };

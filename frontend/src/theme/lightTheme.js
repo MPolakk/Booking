@@ -2,7 +2,8 @@ const whitecolor = '#ffffff'
 
 export const lightTheme = {
   header: {
-    bg: 'rgba(60,120,125,0.8)'
+    bg: 'rgba(60,120,125,0.8)',
+    menu: 'rgba(60,120,125)'
   },
   switchBar: {
     bg: 'black',
