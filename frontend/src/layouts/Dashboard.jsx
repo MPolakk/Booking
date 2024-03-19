@@ -10,7 +10,7 @@ const Dashboard = () => {
       <header>
         <NavBar></NavBar>
       </header>
-      <main style={{ flex: 1, marginTop: '70px' }}>
+      <main style={{ flex: 1 }}>
         {/* <SwitchDarkMode /> */}
 
         <Suspense>

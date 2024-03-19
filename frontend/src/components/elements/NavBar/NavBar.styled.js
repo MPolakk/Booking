@@ -1,7 +1,44 @@
 import styled from 'styled-components';
 
-
-
+const StyledNavBar = styled.div`
+   position: fixed;
+   display: grid;
+   place-items: center;
+   background-color: ${({ theme }) => theme.header.bg};
+   height: ${({ className }) => className === 'minimize' ? '60px' : '110px'};
+   width: 100%;
+   transition: height .4s;
+   & > ul {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      
+      & >li {
+         
+         & > a {
+            display: grid;
+            place-items: center; 
+            height: 100%;
+            text-decoration: none;
+            padding: 0 20px ;
+            color: ${(({ theme }) => theme.textcolor.primary)};
+            font-size: ${(({ theme }) => theme.fontSize.main)};
+            text-transform: uppercase;
+            font-family: ${({ theme }) => theme.font.titlePrimary};
+            img {
+               transition: height .6s;
+            }
+         }
+      }
+         
+        
+   }
+`
+// ---------------------MOBILE---------------
 const StyledNavBarMobile = styled.div`
    position: fixed;
    display: flex;
@@ -9,7 +46,7 @@ const StyledNavBarMobile = styled.div`
    width: 100%;
    justify-content: space-between;
    background-color: ${({ theme }) => theme.header.bg};
-   height: ${({ className }) => className == 'minimize' ? '60px' : '70px'};
+   height: ${({ className }) => className === 'minimize' ? '60px' : '70px'};
    transition: height .4s;
    overflow: hidden;
    img {
@@ -119,4 +156,4 @@ const StyledBlur = styled.div`
    background-color: rgba(0, 0, 0, 0.25);
    z-index: 1;
 `
-export { StyledNavBarMobile, StyledNavButton, StyledMenu, StyledBlur }
+export { StyledNavBar, StyledNavBarMobile, StyledNavButton, StyledMenu, StyledBlur }
